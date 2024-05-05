@@ -8,4 +8,4 @@ package cs1302.api;
  */
 public class Hex {
     String clean;
- } // Color
+} // Color
