@@ -237,13 +237,6 @@ public class ApiApp extends Application {
         Platform.runLater(() -> this.stage.setResizable(false));
     } // start
 
-    /** {@inheritDoc} */
-    @Override
-    public void stop() {
-        // feel free to modify this method
-        System.out.println("stop() called");
-    } // stop
-
     /**
      * Retrives API response, loads images, and displays images.
      *
@@ -283,23 +276,18 @@ public class ApiApp extends Application {
             // form URI
             String groupName = URLEncoder.encode(dropdown.getValue(), StandardCharsets.UTF_8);
             String query = String.format("?groupName=%s", groupName);
-            System.out.println("\nquery: " + query);
             query = query.replace("+", "%20");
-            System.out.println("\nquery: " + query);
             uri = JELLYBELLY_API + query;
-            System.out.println("\nuri: " + uri);
             Platform.runLater(() -> setProgress(0.1));
 
             // build request
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
                 .build();
-            System.out.println("\nHttpRequest: " + request);
 
             // send request / receive response in the form of a String
             response = HTTP_CLIENT
                 .send(request, BodyHandlers.ofString());
-            System.out.println("\nresponse: " + response);
 
             // ensure the request is okay
             if (response.statusCode() != 200) {
@@ -308,7 +296,6 @@ public class ApiApp extends Application {
 
             // get request body (the content we requested)
             String jsonString = response.body();
-            System.out.println("\njsonString: " + jsonString);
 
             // parse the JSON-formatted string using GSON
             JellyBellyResponse jellyBellyResponse = GSON
@@ -321,8 +308,6 @@ public class ApiApp extends Application {
                 alertError(e);
             });
         } // try
-
-        System.out.println("jsonResponse call complete.");
 
     } // jsonResponse
 
@@ -465,18 +450,15 @@ public class ApiApp extends Application {
             String hexQuery = String.format("?hex=%s", hexColor);
             String modeQuery = "&mode=" + mode;
             uri = "https://www.thecolorapi.com/scheme" + hexQuery + modeQuery + "&count=4";
-            System.out.println("\nuri: " + uri);
 
             // build request
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
                 .build();
-            System.out.println("\nHttpRequest: " + request);
 
             // send request / receive response in the form of a String
             HttpResponse<String> httpResponse = HTTP_CLIENT
                 .send(request, BodyHandlers.ofString());
-            System.out.println("\nresponse: " + httpResponse);
 
             // ensure the request is okay
             if (httpResponse.statusCode() != 200) {
@@ -485,7 +467,6 @@ public class ApiApp extends Application {
 
             // get request body (the content we requested)
             String jsonString = httpResponse.body();
-            System.out.println("\njsonString: " + jsonString);
 
             // parse the JSON-formatted string using GSON
             ColorResponse colorResponse = GSON
@@ -499,7 +480,6 @@ public class ApiApp extends Application {
             });
         } // try
 
-        System.out.println("jsonResponseColor call complete.");
     } // jsonResponseColor
 
     /**
