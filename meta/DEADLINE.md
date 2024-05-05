@@ -14,7 +14,11 @@ Markdown is transformed into nice-looking HTML.
 
 > **Also, include the GitHub `https` URL to your repository.**
 
-TODO WRITE / REPLACE
+This app combines the Jelly Belly Wiki API and the Color API to allow users
+to sort through existing Jelly Beans and generate different color schemes
+based on their selection. The program makes calls to the Jelly Belly API
+to recieve information about the beans including hex code color, which is
+then sent to the Color API to generate palettes.
 
 ## Part 1.2: APIs
 
@@ -25,32 +29,33 @@ TODO WRITE / REPLACE
 > information are provided below. If your app uses more than two RESTful
 > JSON APIs, then include them with similar formatting.
 
-### API 1
+### Jelly Belly Wiki API
 
 ```
-https://.../replace/me
+https://jellybellywikiapi.onrender.com/api/beans?groupName=Jelly%20Belly%20Official%20Flavors
 ```
 
-> Replace this line with notes (if needed) or remove it (if not needed).
-
-### API 2
+### The Color API
 
 ```
-https://../replace/me
+https://www.thecolorapi.com/scheme?hex=0047AB&mode=monochrome&count=4
 ```
 
-> Replace this line with notes (if needed) or remove it (if not needed).
 
 ## Part 2: New
 
 > What is something new and/or exciting that you learned from working
 > on this project?
 
-TODO WRITE / REPLACE
+I learned a lot about JavaFX front-end formatting functions, like ScrollPanes
+and how to use CSS stylesheets and in-line style comments to change formatting
+in very specific ways.
 
 ## Part 3: Retrospect
 
 > If you could start the project over from scratch, what do
 > you think might do differently and why?
 
-TODO WRITE / REPLACE
+If I could redo the project, I would try to maximise the user-friendliness
+by making more consistent design choices. I'd also like to add more specific
+options on changing the API queries over the limited dropdown options.
